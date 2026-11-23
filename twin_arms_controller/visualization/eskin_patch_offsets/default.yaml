@@ -1,0 +1,9 @@
+patch_offsets:
+  # [x, y, yaw] in meters and radians
+  test_left2: [0.05, 0.0, 0.0]
+  test_left3: [0.0, 0.02, 0.0]
+  test_left5: [-0.15, 0.0, 3.1415]
+  test_right2: [0.0, 0.0, 0.0]
+  test_right3: [0.0, -0.04, 0.0]
+  test_right5: [-0.15, 0.0, 3.1415]
+  test_chest: [-0.1, -0.04, 3.1415]

@@ -1,0 +1,93 @@
+follower_device_left_x: /dev/follower_arm_left_x
+follower_device_left_p: /dev/follower_arm_left_p
+follower_device_right_x: /dev/follower_arm_right_x
+follower_device_right_p: /dev/follower_arm_right_p
+
+read_only: false
+baudrate: 57600
+
+move_to_init_on_reset: true
+parallel_goal_write: true
+save_follower_debug_data: false
+
+dynamixel_config:
+  x:
+    profile_velocity: 80
+    profile_acceleration: 8
+    pwm_limit: 650
+    current_limit: 900
+    position_limit_min: 0
+    position_limit_max: 4095
+    position_p_gain: 800
+    motor_overrides:
+      11:
+        profile_velocity: 240
+        profile_acceleration: 40
+        pwm_limit: 850
+        position_p_gain: 1000
+      12:
+        current_limit: 600
+        position_p_gain: 1000
+      15:
+        profile_velocity: 180
+        profile_acceleration: 20
+        pwm_limit: 850
+        position_p_gain: 1000
+      16:
+        profile_velocity: 180
+        profile_acceleration: 20
+        pwm_limit: 885
+        current_limit: 1400
+      17:
+        profile_velocity: 180
+        profile_acceleration: 20
+        pwm_limit: 885
+        current_limit: 1400
+      21:
+        profile_velocity: 240
+        profile_acceleration: 40
+        pwm_limit: 850
+        position_p_gain: 1000
+      22:
+        current_limit: 600
+        position_p_gain: 1000
+      25:
+        profile_velocity: 180
+        profile_acceleration: 20
+        pwm_limit: 850
+        position_p_gain: 1000
+      26:
+        profile_velocity: 180
+        profile_acceleration: 20
+        pwm_limit: 885
+        current_limit: 1400
+      27:
+        profile_velocity: 180
+        profile_acceleration: 20
+        pwm_limit: 885
+        current_limit: 1400
+  p:
+    profile_velocity: 1800
+    profile_acceleration: 1500
+    pwm_limit: 1500
+    current_limit: 4000
+    position_limit_min: -501923
+    position_limit_max: 501923
+
+publish_joint_states: true
+joint_state_topic: /joint_states
+command_joint_state_topic: /command_joint_states
+
+eskin_endpoint: tcp://127.0.0.1:5555
+eskin_patch_names:
+  - test_left2
+  - test_left3
+  - test_left5
+  - test_right2
+  - test_right3
+  - test_right5
+  - test_chest
+eskin_timeout: 0.5
+publish_eskin_markers: true
+eskin_marker_topic: /twin_arms/eskin/markers
+eskin_marker_frame_id: base_link

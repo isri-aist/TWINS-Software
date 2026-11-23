@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools >= 61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "twin_arms_controller"
+description = "Learning-based controller for TWINS"
+license = {file = "LICENSE"}
+readme = "README.md"
+authors = [
+  {name = "Masaki Murooka", email = "m-murooka@aist.go.jp"},
+  {name = "Takahide Kitamura", email = "kitamura.takahide@aist.go.jp"},
+]
+maintainers = [
+  {name = "Masaki Murooka", email = "m-murooka@aist.go.jp"},
+  {name = "Takahide Kitamura", email = "kitamura.takahide@aist.go.jp"},
+]
+requires-python = ">= 3.8"
+dependencies = [
+  "dynamixel-sdk",
+  "pyzmq",
+  "pyserial",
+]
+dynamic = ["version"]
+
+[project.scripts]
+twin-arms-teleop = "twin_arms_controller.bin.Teleop:main"
+
+[tool.setuptools.packages.find]
+include = ["twin_arms_controller", "twin_arms_controller.*"]
+
+[tool.setuptools.package-data]
+twin_arms_controller = [
+  "envs/configs/*.yaml",
+  "urdf/*.urdf",
+  "urdf/meshes/*.stl",
+  "visualization/rviz/*.rviz",
+  "visualization/launch/*.py",
+  "visualization/eskin_layouts/*.json",
+  "visualization/eskin_patch_offsets/*.yaml",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"twin_arms_controller/samples/**/*.py" = [
+  "F403",
+  "F405",
+  "E712",
+]
